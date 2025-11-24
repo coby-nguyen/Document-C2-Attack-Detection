@@ -1,7 +1,21 @@
 # Document-C2-Attack-Detection
 ## Project:
-The goal of this project is to use DVWA as a vulnerable website to simulate web-based attacks, and then perform endpoint detection and response. In this lab, I will be using Wazuh as an EDR solution and Suricata as an IDS/IPS. The Wazuh server will be hosted on an Ubuntu machine, while the Wazuh agent will be installed on a Kali Linux machine, which also contains DVWA as a target.
+The goal of this project is to simulate a real cyber attack and endpoint detection and response. In this project, I will use Wazuh as an XDR and SIEM solution, including a Wazuh Manager/Server and a Wazuh Agent. The attack machine will utilize 'Havoc' as a C2 framework to attack a Windows endpoint machine, which will be running the Wazuh Agent.
 
-#
+<img width="1232" height="772" alt="image" src="https://github.com/user-attachments/assets/6a4728f9-cec5-410e-afc3-4976bd5c972d" />
+<p align = "center"><em>Figure 1 - Overall flow of the simulation </em></p>
 
-## Setup:
+## Setup
+This lab includes two Kali Linux VMs and one Windows 11 VM. The first Kali Linux machine will be installed with the Havoc C2 Framework as the primary attack tool, while the second machine will run the Wazuh Manager, receiving logs and events from the agent, and performing active responses when alerts are triggered. The victim machine will run on Windows 11, including the Wazuh Agent integrated with Sysmon. Moreover, YARA will be integrated with Wazuh for malware scanning and active response. 
+
+### Attack Machine
+
+### Wazuh Server
+
+### Victim Machine
+
+## Simulation
+
+### Attack
+
+### Defense
