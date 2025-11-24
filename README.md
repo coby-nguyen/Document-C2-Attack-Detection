@@ -2,7 +2,7 @@
 ## Project:
 The goal of this project is to simulate a real cyber attack and endpoint detection and response. In this project, I will use Wazuh as an XDR and SIEM solution, including a Wazuh Manager/Server and a Wazuh Agent. The attack machine will utilize 'Havoc' as a C2 framework to target a Windows endpoint machine that is running the Wazuh Agent.
 
-<img width="1232" height="772" alt="image" src="https://github.com/coby-nguyen/Document-C2-Attack-Detection/blob/master/images/havoc-project.png" />
+<img width="1232" height="772" alt="image" src="https://github.com/coby-nguyen/Document-C2-Attack-Detection/blob/main/images/havoc-project.png" />
 <p align = "center"><em>Figure 1 - Overall flow of the simulation </em></p>
 
 ## Setup
