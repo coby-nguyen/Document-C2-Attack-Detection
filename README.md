@@ -32,8 +32,15 @@ Three machines will have the following IP addresses:
 
 <img width="737" height="255" alt="image" src="https://github.com/user-attachments/assets/a9f73a49-d74b-4f3d-b2f1-f6cc96e0b7c5" />
 
+<p></p>
 
-Compiling payloads
+- Lastly, I am going to compile a payload, which will be used as malware for compromising the target later. The payload will then be saved as "notepad.exe" in *./havoc/Havoc/payloads*.
+
+<img width="576" height="918" alt="image" src="https://github.com/user-attachments/assets/9cea3108-a38c-4420-b39b-2d713fb17a93" />
+
+<img width="875" height="721" alt="image" src="https://github.com/user-attachments/assets/43ee9836-3f85-4fce-8415-b5eaef0072c5" />
+
+
 
 ### Wazuh Server
 
