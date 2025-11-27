@@ -92,7 +92,22 @@ Three machines will have the following IP addresses:
 
 ### Wazuh Server
 
-- On the Kali Linux machine hosting the Wazuh Server, I will perform some configurations to generate an alert for changes in the monitored directory of the Windows 11 endpoint. Firstly, I will create a *yara_decoder* in the */var/ossec/etc/decoders/local_decoder.xml*
+- On the Kali Linux machine hosting the Wazuh Server, I will perform some configurations to generate an alert for changes in the monitored directory of the Windows 11 endpoint. Firstly, I will create a *yara_decoder* in the */var/ossec/etc/decoders/local_decoder.xml*, which will parse the YARA result lines into fields.
+
+<img width="1194" height="638" alt="image" src="https://github.com/user-attachments/assets/58a7f8a4-f94f-415f-a7ba-4d460353af78" />
+
+<p></p>
+
+- In the Wazuh server */var/ossec/etc/rules/local_rules.xml* configuration file, I will create some rules that do the following:
+  * Rule ID __100770__ triggers when a file is modified in *C:\Users\kaine\Downloads* directory.
+  * Rule ID __100771__ is triggered when a file is added to *C:\Users\kaine\Downloads* directory.
+  * Rule ID __100880__ groups YARA rules together.
+  * Rule ID __100881__ is triggered when a file has been identified as malware by a YARA scan.
+
+<img width="1127" height="752" alt="image" src="https://github.com/user-attachments/assets/4f3a0702-9607-461b-adea-e9277852d992" />
+
+<p></p>
+
 
 ## III. Simulation
 
