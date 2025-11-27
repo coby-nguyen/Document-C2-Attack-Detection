@@ -80,7 +80,7 @@ Three machines will have the following IP addresses:
 
 <p></p>
 
-- After that, I will append the Havoc detection rules to the *yara_rules.yar* file
+- After that, I will append the Havoc detection rules to the *yara_rules.yar* file.
 
 <img width="667" height="457" alt="image" src="https://github.com/user-attachments/assets/62db5246-7e86-4064-a3a2-912aa9e50688" />
 
