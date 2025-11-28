@@ -108,6 +108,16 @@ Three machines will have the following IP addresses:
 
 <p></p>
 
+- Lastly, I will configure the Wazuh active response in the Wazuh server */var/ossec/etc/ossec.conf* file. This configuration is set to respond when the YARA rules are triggered, to execute the yara.bat active response script.
+
+<img width="412" height="228" alt="image" src="https://github.com/user-attachments/assets/47a8a61f-d8e3-406c-80ab-fea3624cc20b" />
+
+<p></p>
+
+- After the Wazuh server configuration, I will start the Wazuh server and log in with my credentials via https://192.168.0.102/. 
+
+<img width="427" height="206" alt="image" src="https://github.com/user-attachments/assets/b6ea17f3-0d9f-4a9f-8cd6-c0f590eaf82f" />
+
 
 ## III. Simulation
 
