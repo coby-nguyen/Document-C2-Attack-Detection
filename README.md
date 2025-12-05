@@ -160,7 +160,12 @@ Three machines will have the following IP addresses:
 
 <p></p>
 
-- From this moment, the attacker has compromised the victim's machine and gained control of it, creating a backdoor to the system with a Trojan. Therefore, the attacker can perform any action on the victim's machine via the Havoc Client UI.
+- From this moment, the attacker has compromised the victim's machine and gained control of it, creating a backdoor to the system with a Trojan. Therefore, the attacker can perform any action on the victim's machine via the Havoc Client UI. For example, I can take screenshots from the victim's machine, which will appear in the *Loot* or perform PowerShell commands, like "ls" or "pwd."
 
+<img width="1920" height="935" alt="image" src="https://github.com/user-attachments/assets/f641ca91-0822-4fa0-ba70-6b876dbaaf53" />
+
+<img width="1920" height="952" alt="image" src="https://github.com/user-attachments/assets/0acdf6b7-fcb4-4c7b-88a9-3d28c630d05b" />
+
+<p></p>
 
 ### Defense
