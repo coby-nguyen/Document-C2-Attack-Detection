@@ -11,9 +11,9 @@ The goal of this project is to simulate a real cyber attack and endpoint detecti
 This lab includes two Kali Linux VMs and one Windows 11 VM. The first Kali Linux machine will be installed with the Havoc C2 Framework as the primary attack tool, while the second machine will run the Wazuh Manager, receiving logs and events from the agent, and performing active responses when alerts are triggered. The victim machine will run on Windows 11, including the Wazuh Agent integrated with Sysmon. Moreover, YARA will be integrated with Wazuh for malware scanning and active response. 
 
 Three machines will have the following IP addresses:
-- Attacker Machine (Kali Linux): 192.168.0.103
-- Wazuh Server (Kali Linux): 192.168.0.102
-- Victim Machine (Windows 11): 192.168.0.97
+- Attacker Machine (Kali Linux): 192.168.1.86
+- Wazuh Server (Kali Linux): 192.168.1.82
+- Victim Machine (Windows 11): 192.168.1.107
 
 ### Attack Machine
 - The [Havoc C2 Framework](https://havocframework.com/) has been installed on one of my Kali Linux machines. The first step is starting the Havoc Teamserver, which is the core server that creates listeners, interacts with agents, and handles the operator's commands.
@@ -90,6 +90,14 @@ Three machines will have the following IP addresses:
 
 <img width="1376" height="526" alt="image" src="https://github.com/user-attachments/assets/4417d5cb-2330-432b-a7af-ada0e008bcac" />
 
+<p></p>
+
+- Additionally, we will check the status of the Wazuh Agent.
+
+<img width="459" height="185" alt="Screenshot 2025-12-05 162253" src="https://github.com/user-attachments/assets/21592ae6-816f-43f3-b222-638ca26d6988" />
+
+<p></p>
+
 ### Wazuh Server
 
 - On the Kali Linux machine hosting the Wazuh Server, I will perform some configurations to generate an alert for changes in the monitored directory of the Windows 11 endpoint. Firstly, I will create a *yara_decoder* in the */var/ossec/etc/decoders/local_decoder.xml*, which will parse the YARA result lines into fields.
@@ -114,13 +122,45 @@ Three machines will have the following IP addresses:
 
 <p></p>
 
-- After the Wazuh server configuration, I will start the Wazuh server and log in with my credentials via https://192.168.0.102/. 
+- After the Wazuh server configuration, I will start the Wazuh server and log in with my credentials via https://192.168.1.82/. 
 
 <img width="427" height="206" alt="image" src="https://github.com/user-attachments/assets/b6ea17f3-0d9f-4a9f-8cd6-c0f590eaf82f" />
 
+<img width="1919" height="686" alt="Screenshot 2025-12-05 161003" src="https://github.com/user-attachments/assets/e8c9ef50-2576-4ab7-80ea-de091f5daa1b" />
+
+<p></p>
 
 ## III. Simulation
 
 ### Attack
-Hosting an HTTP server with Python (python -m http.server 80)
+
+- After setting up the three-machine environment, the scenario begins on the attacker (red-team simulation) machine — Kali Linux (192.168.1.86). A simple Python HTTP server is started to simulate a legitimate website that the victim can access via *"192.168.1.86"*. The server also hosts the Havoc-generated payload, __notepad.exe__. When the victim visits the site, they must manually click the file to download it onto their Windows 11 machine, mimicking a common social-engineering technique used in real-world attacks.
+
+<img width="460" height="89" alt="image" src="https://github.com/user-attachments/assets/7575c0bd-8666-48a6-8161-d56c41bb5449" />
+
+<i>Attacker's Machine</i>
+
+<p></p>
+
+<img width="864" height="475" alt="image" src="https://github.com/user-attachments/assets/42557ad8-56ac-48c8-89e1-1f6b776791f9" />
+
+<i>Victim's Machine</i>
+
+<p></p>
+ 
+- By clicking the __notepad.exe__, the victim will install it on their machine.
+
+<img width="897" height="316" alt="image" src="https://github.com/user-attachments/assets/1288bd67-8683-4740-8a8f-b734e8137d46" />
+
+<p></p>
+
+- When the victim executes the downloaded payload, the Havoc demon agent will establish a reverse connection and call back to the Havoc Teamserver, creating a session. In the Client UI, we can see that a session has been initialized.
+
+<img width="1918" height="490" alt="image" src="https://github.com/user-attachments/assets/1b0bbcda-42aa-4e0b-baf0-92f5958c520f" />
+
+<p></p>
+
+- From this moment, the attacker has compromised the victim's machine and gained control of it, creating a backdoor to the system with a Trojan. Therefore, the attacker can perform any action on the victim's machine via the Havoc Client UI.
+
+
 ### Defense
